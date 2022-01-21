@@ -10,7 +10,7 @@ const Home = () => {
     const [bookId, setBookId] = useState("7c2831e6-ce04-49f8-aa61-711d0d4b5cc8");
     const [addressForm, setAddressForm] = useReducer(formReducer, { street: "", city: "", state: "", zip: "" })
 
-    const [addAddress, { addressError, addressLoading}] = useMutation(ADD_ADDRESS, {
+    const [addAddress, { addressError, addressLoading }] = useMutation(ADD_ADDRESS, {
         variables: {
             "addAddressInput": {
               "street": addressForm.street,
@@ -47,7 +47,7 @@ const Home = () => {
 
     return (
         <>
-            <div style={{padding: "25px 25px"}}>
+            <div style={{padding: "25px"}}>
                 <h2>Books</h2>
                 <select>
                     {data.getAllBooks.map(book => (
@@ -55,7 +55,7 @@ const Home = () => {
                     ))}
                 </select>
             </div>
-            <div style={{padding: "25px 25px"}}>
+            <div style={{padding: "25px"}}>
                 <h2>Get Book by ID</h2>
                 <form>
                     <select onChange={e => setBookId(e.target.value)}>
@@ -77,7 +77,7 @@ const Home = () => {
                 {addressLoading ? "Loading..." : <button onClick={addAddress}>Click to add!</button>}
                 {addressError && "Error :((("}
             </div>
-            <div style={{padding: "25px 25px"}}>
+            <div style={{padding: "25px"}}>
                 <h2>Addresses</h2>
                 <ul>
                     { 
